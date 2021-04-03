@@ -21,34 +21,25 @@ class UserController extends Controller
         return view('Fronted.User.signin');
     }
 
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function Associate (){
-        $title='تسجيل عضو منتسب';
-        $type=2;
-        $price='رسوم العضو المنتسب: (100) ريال فأكثر سنوياً';
-        return view('Fronted.Subscribe.Subscribe',compact('title','type','price'));
+    public function sign_up  (){
+        return view('Fronted.User.signup');
     }
+
+
 
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function sign_up(Request $request){
-        $Subscribe=new Subscribe();
-        $Subscribe->name=$request->name;
-        $Subscribe->email=$request->email;
-        $Subscribe->age=$request->age;
-        $Subscribe->phone=$request->phone;
-        $Subscribe->type=$request->type;
-        $Subscribe->qualification=$request->qualification;
-        $Subscribe->nationality=$request->nationality;
-        $Subscribe->id_number=$request->id_number;
-        $Subscribe->job=$request->job;
-        $Subscribe->status=2;
-        $Subscribe->save();
-        return response()->json(['status'=>1,'message'=>'تم تسجيل العضوية وسيقوم فريقنا بالتواصل معك']);
+    public function saveUser(Request $request){
+        $user=new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->phone=$request->phone;
+        $user->password=Hash::make($request->password);
+        $user->save();
+        Auth::login($user);
+        return response()->json(['status'=>1,'message'=>'registration success']);
     }
 
 

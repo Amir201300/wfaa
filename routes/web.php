@@ -29,7 +29,8 @@ Route::get('/about_coach', 'GeneralController@about_coach')->name('General.about
 
 /** User */
 Route::get('/sign_in', 'UserController@sign_in')->name('User.sign_in');
-Route::post('/sign_up', 'UserController@sign_up')->name('User.sign_up');
+Route::get('/sign_up', 'UserController@sign_up')->name('User.sign_up');
+Route::post('/saveUser', 'UserController@saveUser')->name('User.saveUser');
 
 /** Packages */
 Route::get('/Packages', 'PackagesController@allPackages')->name('Packages.allPackages');

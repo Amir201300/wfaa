@@ -22,7 +22,7 @@
                         <li><a href="{{route('User.sign_in')}}"><i class="fas fa-user"></i> &nbsp;my profile</a></li>
                     @else
                         <li><a href="{{route('User.sign_in')}}"><i class="fas fa-user"></i> &nbsp;Sign In</a></li>
-                        <li><a href="{{route('User.sign_in')}}"><i class="fas fa-user"></i> &nbsp;Sign up</a></li>
+                        <li><a href="{{route('User.sign_up')}}"><i class="fas fa-user"></i> &nbsp;Sign up</a></li>
                     @endif
                 </ul>
             </nav>
