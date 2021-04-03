@@ -22,9 +22,9 @@ class PackagesController extends Controller
 
     public function singlePackage($id)
         {
-        $Package = Packages::find($id);
+        $Package = Packages::where('id',$id)->first();
         if (!is_null($Package)) {
-            return view('Fronted.Packages.more_info');
+            return view('Fronted.Packages.more_info',compact('Package'));
         }
     }
 }

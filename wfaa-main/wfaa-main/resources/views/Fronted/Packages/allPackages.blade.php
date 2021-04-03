@@ -28,7 +28,7 @@
                             <div class="date">{{$row->duration}}</div>
                         </div>
                         <div class="club-card-text">{{$row->about_package}} </div>
-                        <a href="{{route('Packages.singlePackage', ['id' => $val->id])}}" class="btn">More Details</a>
+                        <a href="{{route('Packages.singlePackage',[$id])}}" class="btn">More Details</a>
                     </div>
                 </div>
                 @endforeach
